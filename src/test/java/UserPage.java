@@ -2,20 +2,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class UserPage {
-    WebDriver driver;
-    String GROUP_PATH = ".//a[@data-l=\"t,userAltGroup\"]";
+    private final WebDriver driver;
 
-    UserPage(WebDriver driver){
+    private UserPage(WebDriver driver){
         this.driver = driver;
-        check();
     }
 
-    protected void check(){
-
+    UserPage(LoginPage loginPage, String login, String pass) throws LoginException {
+        driver = loginPage.doLogin(login, pass);
+        if (driver.findElements(By.xpath(".//a[contains(@data-l,\"t,userPage\")]")).isEmpty()) {
+            throw new LoginException("Incorrect login or password!");
+        } else {
+            new UserPage(driver);
+        }
     }
 
     public GroupPage moveToGroups() {
-        driver.findElement(By.xpath(GROUP_PATH)).click();
+        String groupPath = ".//a[@data-l=\"t,userAltGroup\"]";
+        driver.findElement(By.xpath(groupPath)).click();
         return new GroupPage(driver);
     }
 }

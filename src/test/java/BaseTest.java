@@ -1,35 +1,32 @@
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.fail;
-
 public class BaseTest {
     public WebDriver driver;
-    public String baseUrl;
-   // public boolean acceptNextAlert = true;
-    public StringBuffer verificationErrors = new StringBuffer();
-   // public LoginPage loginPage;
 
-
-
-    public void setUp() {
+    private void initDriver() {
         driver = new ChromeDriver();
-        baseUrl = "https://www.google.com/";
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
-    public void get() {
+    private void getOkPage() {
         driver.manage().window();
         driver.get("https://ok.ru/");
     }
 
-    public void tearDown() {
+    private void closeDriver() {
         driver.quit();
-        String verificationErrorString = verificationErrors.toString();
-        if (!"".equals(verificationErrorString)) {
-            fail(verificationErrorString);
-        }
+    }
+
+    @Before
+    public void start() {
+        initDriver();
+        getOkPage();
+    }
+
+    @After
+    public void stop() {
+        closeDriver();
     }
 }
