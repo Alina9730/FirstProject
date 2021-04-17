@@ -3,18 +3,20 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
     private final WebDriver driver;
-    private final String loginLocator;
-    private final String passLocator;
-    private final String signInLocator;
+    private final static String signInLocator = ".//input[contains(@data-l,\"t,sign_in\")]";
 
     LoginPage(WebDriver driver) {
         this.driver = driver;
-        this.loginLocator = ".//input[@id=\"field_email\"]";
-        this.passLocator = ".//input[@id=\"field_password\"]";
-        this.signInLocator = ".//input[contains(@data-l,\"t,sign_in\")]";
+    }
+
+    public static boolean isLoggedIn(WebDriver driver) {
+        return driver.findElements(By.xpath(signInLocator)).isEmpty();
     }
 
     public WebDriver doLogin(String login, String pass) {
+        String loginLocator = ".//input[@id=\"field_email\"]";
+        String passLocator = ".//input[@id=\"field_password\"]";
+
         driver.findElement(By.xpath(loginLocator)).click();
         driver.findElement(By.xpath(loginLocator)).sendKeys(login);
         driver.findElement(By.xpath(passLocator)).click();

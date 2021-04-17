@@ -1,6 +1,5 @@
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginTest extends BaseTest {
@@ -13,7 +12,7 @@ public class LoginTest extends BaseTest {
 
         WebDriver driver = loginPage.doLogin(login, pass);
 
-        Assert.assertFalse(driver.findElements(By.xpath(".//a[contains(@data-l,\"t,userPage\")]")).isEmpty());
+        Assert.assertTrue(LoginPage.isLoggedIn(driver));
     }
 
 }

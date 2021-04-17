@@ -1,25 +1,20 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class UserPage {
-    private final WebDriver driver;
+    public final WebDriver driver;
 
-    private UserPage(WebDriver driver){
-        this.driver = driver;
-    }
-
-    UserPage(LoginPage loginPage, String login, String pass) throws LoginException {
-        driver = loginPage.doLogin(login, pass);
-        if (driver.findElements(By.xpath(".//a[contains(@data-l,\"t,userPage\")]")).isEmpty()) {
-            throw new LoginException("Incorrect login or password!");
+    UserPage(WebDriver driver, String login, String pass) throws LoginException {
+        driver.get("https://ok.ru/");
+        if (LoginPage.isLoggedIn(driver)) {
+            this.driver = driver;
         } else {
-            new UserPage(driver);
+            LoginPage loginPage = new LoginPage(driver);
+            loginPage.doLogin(login, pass);
+            if (LoginPage.isLoggedIn(driver)) {
+                this.driver = driver;
+            } else {
+                throw new LoginException("Incorrect login or password!");
+            }
         }
-    }
-
-    public GroupPage moveToGroups() {
-        String groupPath = ".//a[@data-l=\"t,userAltGroup\"]";
-        driver.findElement(By.xpath(groupPath)).click();
-        return new GroupPage(driver);
     }
 }
