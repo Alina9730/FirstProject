@@ -2,7 +2,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPage {
+    // Для каждого объекта LoginPage свой драйвер?
     private final WebDriver driver;
+    // Обычно константы записываются как SIGN_IN_LOCATOR, так переменную проще идентифицировать как константную
     private final static String signInLocator = ".//input[contains(@data-l,\"t,sign_in\")]";
 
     LoginPage(WebDriver driver) {
@@ -14,6 +16,7 @@ public class LoginPage {
     }
 
     public WebDriver doLogin(String login, String pass) {
+        // Может стоит вынести в константы?
         String loginLocator = ".//input[@id=\"field_email\"]";
         String passLocator = ".//input[@id=\"field_password\"]";
 

@@ -6,6 +6,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void test() {
+        // Константы?
         String login = "+79110298964";
         String pass = "RK6eLEm9@@2tcVM";
         LoginPage loginPage = new LoginPage(super.driver);

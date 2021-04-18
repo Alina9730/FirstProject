@@ -12,6 +12,7 @@ public class BaseTest {
 
     private void getOkPage() {
         driver.manage().window();
+        // Для "https://ok.ru/", наверное, лучше сделать отдельную переменную
         driver.get("https://ok.ru/");
     }
 
