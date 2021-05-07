@@ -16,20 +16,14 @@ public class GroupPage {
         String imageLocator = ".//img[contains(@class, \"photo_img\")]";
         // Инициализация списка avatarLocators (так как мы нах-ся в одном классе, то вызывать метод можно без переменной (не используя точку)
         List<GroupCard> avatarCards = getAvatarCards();
-        //System.out.println(avatarCards.size());
 
-        if (avatarCards.size() > 0) {
-            for (GroupCard card : avatarCards) {
-                WebElement image = card.element.findElement(By.xpath(imageLocator));
-                if (!image.isDisplayed()) {
-                    return false;
-                }
+        for (GroupCard card : avatarCards) {
+            WebElement image = card.element.findElement(By.xpath(imageLocator));
+            if (!image.isDisplayed()) {
+                return false;
             }
-            return true;
         }
-        else {
-            return false;
-        }
+        return !avatarCards.isEmpty();
     }
 
     private List<GroupCard> getAvatarCards() {

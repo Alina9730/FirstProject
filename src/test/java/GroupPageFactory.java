@@ -6,12 +6,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GroupPageFactory {
 
     public static GroupPage getAutoMotoPage(WebDriver driver) throws LoginException {
-        String login = "+79110298964";
-        String pass = "RK6eLEm9@@2tcVM";
         String groupPath = ".//a[@data-l=\"t,userAltGroup\"]";
         String autoCategory = ".//a[contains(@data-l,\"t,automoto\")]";
 
-        UserPage userPage = new UserPage(driver, login, pass);
+        UserPage userPage = new UserPage(driver, Literals.LOGIN, Literals.PASSWORD);
 
         userPage.driver.findElement(By.xpath(groupPath)).click();
 

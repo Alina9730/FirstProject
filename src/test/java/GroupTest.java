@@ -5,10 +5,10 @@ public class GroupTest extends BaseTest {
 
     @Test
     public void testAutoMotoAvatars() {
-        GroupPage groupPage;
+        GroupPage autoMotoGroupPage;
         try {
-            groupPage = GroupPageFactory.getAutoMotoPage(driver);
-            Assert.assertTrue(groupPage.isAllAvatarsDisplayed());
+            autoMotoGroupPage = GroupPageFactory.getAutoMotoPage(driver);
+            Assert.assertTrue(autoMotoGroupPage.isAllAvatarsDisplayed());
         } catch (LoginException e) {
             Assert.fail(e.cause);
         }

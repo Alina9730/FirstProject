@@ -4,7 +4,7 @@ public class UserPage {
     public final WebDriver driver;
 
     UserPage(WebDriver driver, String login, String pass) throws LoginException {
-        driver.get("https://ok.ru/");
+        driver.get(Literals.OK_MAIN_PAGE);
         if (LoginPage.isLoggedIn(driver)) {
             this.driver = driver;
         } else {

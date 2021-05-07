@@ -12,7 +12,7 @@ public class BaseTest {
 
     private void getOkPage() {
         driver.manage().window();
-        driver.get("https://ok.ru/");
+        driver.get(Literals.OK_MAIN_PAGE);
     }
 
     private void closeDriver() {

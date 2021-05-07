@@ -6,11 +6,9 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void test() {
-        String login = "+79110298964";
-        String pass = "RK6eLEm9@@2tcVM";
         LoginPage loginPage = new LoginPage(super.driver);
 
-        WebDriver driver = loginPage.doLogin(login, pass);
+        WebDriver driver = loginPage.doLogin(Literals.LOGIN, Literals.PASSWORD);
 
         Assert.assertTrue(LoginPage.isLoggedIn(driver));
     }
