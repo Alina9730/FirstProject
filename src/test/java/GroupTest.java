@@ -1,5 +1,10 @@
+import exceptions.LoginException;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.everyItem;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
 
 public class GroupTest extends BaseTest {
 
@@ -8,9 +13,9 @@ public class GroupTest extends BaseTest {
         GroupPage autoMotoGroupPage;
         try {
             autoMotoGroupPage = GroupPageFactory.getAutoMotoPage(driver);
-            Assert.assertTrue(autoMotoGroupPage.isAllAvatarsDisplayed());
+            assertThat(autoMotoGroupPage.getAvatars(), everyItem(displayed()));
         } catch (LoginException e) {
-            Assert.fail(e.cause);
+            Assert.fail(e.getMessage());
         }
     }
 }
