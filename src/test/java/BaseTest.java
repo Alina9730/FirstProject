@@ -7,6 +7,7 @@ public class BaseTest {
     public WebDriver driver;
 
     private void initDriver() {
+        System.setProperty("webdriver.chrome.driver","/home/leonid/configs/chromedriver");
         driver = new ChromeDriver();
     }
 

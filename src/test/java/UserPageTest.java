@@ -31,13 +31,11 @@ public class UserPageTest extends BaseTest {
             assertThat(menuItems, everyItem(not(displayed())));
 
             // нажимаем кнопку "Ещё" на тулбаре user-main, ждём после этого 500 миллисекунд для обновления списка меню
-            Utils.pressButton(driver, ".//div[contains(@data-l,\"t,toggler\")]");
-            Thread.sleep(500);
+            Utils.pressButtonAndWait(driver, ".//div[contains(@data-l,\"t,toggler\")]", 500);
             assertThat(menuItems, everyItem((displayed())));
 
-            // нажимаем кнопку "Скрыть" на тулбаре user-main, ждём после этого 500 миллисекунд для обновления списка меню
-            Utils.pressButton(driver, ".//div[contains(@data-l,\"t,toggler\")]");
-            Thread.sleep(1000);
+            // нажимаем кнопку "Скрыть" на тулбаре user-main, ждём после этого 1000 миллисекунд для обновления списка меню
+            Utils.pressButtonAndWait(driver, ".//div[contains(@data-l,\"t,toggler\")]", 1000);
             assertThat(menuItems, everyItem(not(displayed())));
 
         } catch (Exception e) {

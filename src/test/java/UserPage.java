@@ -5,15 +5,12 @@ public class UserPage {
 
     public static void goToUserPage(WebDriver driver, String login, String pass) throws LoginException {
         driver.get(Literals.OK_MAIN_PAGE);
-        if (LoginPage.isLoggedIn(driver)) {
-        } else {
+        if (!LoginPage.isLoggedIn(driver)) {
             LoginPage.doLogin(driver, login, pass);
-            if (LoginPage.isLoggedIn(driver)) {
-            } else {
+            if (!LoginPage.isLoggedIn(driver)) {
                 throw new LoginException("Incorrect login or password!");
             }
         }
     }
-
 
 }

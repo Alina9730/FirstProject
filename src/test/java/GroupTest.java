@@ -10,10 +10,9 @@ public class GroupTest extends BaseTest {
 
     @Test
     public void testAutoMotoAvatars() {
-        GroupPage autoMotoGroupPage;
         try {
-            autoMotoGroupPage = GroupPageFactory.getAutoMotoPage(driver);
-            assertThat(autoMotoGroupPage.getAvatars(), everyItem(displayed()));
+            GroupPage.goToAutoMotoPage(driver);
+            assertThat(GroupPage.getAvatars(driver), everyItem(displayed()));
         } catch (LoginException e) {
             Assert.fail(e.getMessage());
         }
