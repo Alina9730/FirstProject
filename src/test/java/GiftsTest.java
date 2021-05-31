@@ -1,8 +1,9 @@
 import exceptions.LoginException;
 import org.junit.Assert;
 import org.junit.Test;
+import page_objects.GiftsPage;
 
-public class GiftsTest extends BaseTest {
+public class GiftsTest extends BaseTestWithLogin {
 
     @Test
     public void testGifts() {

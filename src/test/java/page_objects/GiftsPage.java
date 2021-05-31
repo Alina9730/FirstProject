@@ -1,3 +1,7 @@
+package page_objects;
+
+import common.Literals;
+import common.Utils;
 import exceptions.LoginException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +12,7 @@ public class GiftsPage {
     public static void goToGiftsPage(WebDriver driver) throws LoginException {
         String giftsButton = ".//a[contains(@data-l,\"t,giftsFront\")]";
 
-        UserPage.goToUserPage(driver, Literals.LOGIN, Literals.PASSWORD);
+//        UserPage.goToUserPage(driver, Literals.LOGIN, Literals.PASSWORD);
 
         Utils.pressButtonAndWaitForCondition(driver, giftsButton, 3, ExpectedConditions.urlContains("gifts"));
     }
@@ -27,7 +31,7 @@ public class GiftsPage {
 //    public static void selectGiftPattern(WebDriver driver) {
 //        String patternButton = ".//div[contains(@id,\"id-start_choose_template_btn\")]";
 //        //String  menuPattern= ".//div[contains(@id,\"id-photoManagerCnt\")]";
-//        Utils.pressButtonAndWaitForCondition(driver, patternButton, 3, ExpectedConditions.urlContains("constructor"));
+//        common.Utils.pressButtonAndWaitForCondition(driver, patternButton, 3, ExpectedConditions.urlContains("constructor"));
 //    }
 
 
