@@ -18,5 +18,8 @@ public class MainLeftSideMenu extends HtmlElement {
     public CustomButton togglerButton;
 
     @FindBy(xpath = ".//a[@data-l=\"t,userAltGroup\"]")
-    public CustomButton groupButton;
+    public CustomButton groupsButton;
+
+    @FindBy(xpath = ".//a[@data-l=\"t,giftsFront\"]")
+    public CustomButton giftsButton;
 }

@@ -12,4 +12,8 @@ public class PageObject {
         this.driver = driver;
         PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
     }
+
+    public void refreshPage() {
+        driver.navigate().refresh();
+    }
 }

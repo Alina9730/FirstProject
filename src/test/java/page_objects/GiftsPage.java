@@ -1,31 +1,30 @@
 package page_objects;
 
-import common.Literals;
-import common.Utils;
-import exceptions.LoginException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import page_components.GiftCategoriesPopupMenu;
+import page_components.GiftsHeaderMenu;
 
-public class GiftsPage {
+public class GiftsPage extends PageObject {
 
-    public static void goToGiftsPage(WebDriver driver) throws LoginException {
-        String giftsButton = ".//a[contains(@data-l,\"t,giftsFront\")]";
-
-//        UserPage.goToUserPage(driver, Literals.LOGIN, Literals.PASSWORD);
-
-        Utils.pressButtonAndWaitForCondition(driver, giftsButton, 3, ExpectedConditions.urlContains("gifts"));
+    public GiftsPage(WebDriver driver) {
+        super(driver);
     }
 
-    public static void openCategoryMenu(WebDriver driver) {
-        String categoriesButton = ".//span[contains(@id,\"mctc_navMenuDropdownSec_categoriesKey\")]";
+    public GiftsHeaderMenu headerMenu;
+
+    public GiftCategoriesPopupMenu popupMenu;
+
+    public void openCategoryMenu() {
         String menuLocator = ".//div[contains(@id,\"mctc_navMenuDropdownSec_popup_categoriesKey\")]";
-        Utils.pressButtonAndWaitForCondition(driver, categoriesButton, 3, ExpectedConditions.visibilityOfElementLocated(By.xpath(menuLocator)));
+        headerMenu.giftsButton.clickAndWaitForCondition(driver, ExpectedConditions.visibilityOfElementLocated(By.xpath(menuLocator)));
     }
 
-    public static void goToCreateGiftPage(WebDriver driver) {
-        String categoriesButton = ".//a[contains(@href,\"/app/constructor\")]";
-        Utils.pressButtonAndWaitForCondition(driver, categoriesButton, 3, ExpectedConditions.urlContains("constructor"));
+    public GiftsConstructorPage getGiftsConstructorPage() {
+        popupMenu.constructorButton.clickAndWaitForCondition(driver, ExpectedConditions.urlContains("constructor"));
+        driver.switchTo().frame("appMain_Div");
+        return new GiftsConstructorPage(driver);
     }
 
 //    public static void selectGiftPattern(WebDriver driver) {
@@ -34,5 +33,5 @@ public class GiftsPage {
 //        common.Utils.pressButtonAndWaitForCondition(driver, patternButton, 3, ExpectedConditions.urlContains("constructor"));
 //    }
 
-
+//driver.switchTo().frame("appMain_Div")  и на следующей строке: driver.findElement(By.Xpath(".//div[contains(@id,"id-start_choose_template_btn")]"))
 }

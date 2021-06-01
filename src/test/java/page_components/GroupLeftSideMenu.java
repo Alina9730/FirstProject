@@ -8,9 +8,6 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 @FindBy(xpath = ".//div[contains(@class,\"nav-side \")]")
 public class GroupLeftSideMenu extends HtmlElement {
 
-//    @FindAll({@FindBy(xpath = ".//a[contains(@class,\"nav-side\")]")})
-//    public List<WebElement> items;
-
     @FindBy(xpath = ".//a[contains(@data-l,\"t,automoto\")]")
     public CustomButton autoMotoButton;
 

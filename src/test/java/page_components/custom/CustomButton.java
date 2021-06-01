@@ -1,6 +1,5 @@
 package page_components.custom;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -20,5 +19,9 @@ public class CustomButton extends Button {
     public <T> void clickAndWaitForCondition(WebDriver driver, long sleepTimeSec, ExpectedCondition<T> condition) {
         super.click();
         new WebDriverWait(driver, sleepTimeSec).until(condition);
+    }
+
+    public <T> void clickAndWaitForCondition(WebDriver driver, ExpectedCondition<T> condition) {
+        clickAndWaitForCondition(driver, 3, condition);
     }
 }

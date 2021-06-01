@@ -12,8 +12,13 @@ public class MainPage extends PageObject {
 
     public MainLeftSideMenu leftMenu;
 
-    public GroupPage getGroupPage() {
-        leftMenu.groupButton.clickAndWaitForCondition(driver, 3, ExpectedConditions.urlContains("profile"));
-        return new GroupPage(driver);
+    public GroupsPage getGroupsPage() {
+        leftMenu.groupsButton.clickAndWaitForCondition(driver, ExpectedConditions.urlContains("profile"));
+        return new GroupsPage(driver);
+    }
+
+    public GiftsPage getGiftsPage() {
+        leftMenu.giftsButton.clickAndWaitForCondition(driver, ExpectedConditions.urlContains("gifts"));
+        return new GiftsPage(driver);
     }
 }
