@@ -1,7 +1,7 @@
-package page_components;
+package pages.main.groups.categories;
 
 import org.openqa.selenium.support.FindBy;
-import page_components.custom.CustomButton;
+import components.CustomButton;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 @FindBy(xpath = ".//div[contains(@data-l,\"groupId\")]")

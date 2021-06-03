@@ -1,4 +1,4 @@
-package page_objects;
+package pages;
 
 import exceptions.LoginException;
 import org.openqa.selenium.WebDriver;
@@ -15,13 +15,13 @@ public class LoginPage extends PageObject {
     private WebElement password;
 
     @FindBy(xpath = ".//input[contains(@data-l,\"t,sign_in\")]")
-    private WebElement signInButton;
+    public WebElement signInButton;
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    private void checkLoginException() {
+    public void isLoginSucceed() {
         if (driver.getCurrentUrl().contains("password.wrong")) throw new LoginException("Incorrect login or password!");
     }
 
@@ -29,6 +29,5 @@ public class LoginPage extends PageObject {
         email.sendKeys(login);
         password.sendKeys(pass);
         signInButton.click();
-        checkLoginException();
     }
 }

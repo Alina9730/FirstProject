@@ -1,10 +1,10 @@
-package page_objects;
+package pages.main.gifts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import page_components.GiftCategoriesPopupMenu;
-import page_components.GiftsHeaderMenu;
+import pages.PageObject;
+import pages.main.gifts.constructor.GiftsConstructorPage;
 
 public class GiftsPage extends PageObject {
 

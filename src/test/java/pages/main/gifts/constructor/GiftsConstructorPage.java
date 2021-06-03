@@ -1,12 +1,12 @@
-package page_objects;
+package pages.main.gifts.constructor;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import page_components.GiftConstructorPopupMenu;
-import page_components.custom.CustomButton;
+import components.CustomButton;
+import pages.PageObject;
 
 public class GiftsConstructorPage extends PageObject {
 

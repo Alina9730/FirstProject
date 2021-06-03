@@ -1,6 +1,6 @@
 import common.Literals;
 import org.junit.Before;
-import page_objects.LoginPage;
+import pages.LoginPage;
 
 public class BaseTestWithLogin extends BaseTest {
     @Before
@@ -8,5 +8,6 @@ public class BaseTestWithLogin extends BaseTest {
         super.start();
         LoginPage loginPage = new LoginPage(driver);
         loginPage.doLogin(Literals.LOGIN, Literals.PASSWORD);
+        loginPage.isLoginSucceed();
     }
 }

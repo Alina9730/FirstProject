@@ -1,8 +1,10 @@
-package page_objects;
+package pages.main;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import page_components.MainLeftSideMenu;
+import pages.PageObject;
+import pages.main.gifts.GiftsPage;
+import pages.main.groups.GroupsPage;
 
 public class MainPage extends PageObject {
 

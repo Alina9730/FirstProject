@@ -1,8 +1,8 @@
 import org.hamcrest.Matchers;
 import org.junit.Test;
-import page_objects.CategoryGroupPage;
-import page_objects.GroupPage;
-import page_objects.MainPage;
+import pages.main.groups.categories.CategoryGroupPage;
+import pages.main.groups.categories.group.GroupPage;
+import pages.main.MainPage;
 
 import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.MatcherAssert.assertThat;

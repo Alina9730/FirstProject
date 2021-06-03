@@ -1,6 +1,6 @@
 import org.junit.Test;
-import page_objects.GiftsPage;
-import page_objects.MainPage;
+import pages.main.gifts.GiftsPage;
+import pages.main.MainPage;
 
 public class GiftsPageTest extends BaseTestWithLogin {
 

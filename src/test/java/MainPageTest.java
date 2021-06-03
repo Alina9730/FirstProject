@@ -1,7 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
-import page_objects.MainPage;
+import pages.main.MainPage;
 
 import java.util.List;
 

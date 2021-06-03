@@ -1,10 +1,12 @@
-package page_objects;
+package pages.main.groups.categories.group;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import page_components.custom.CustomButton;
+import components.CustomButton;
+import pages.PageObject;
+import pages.main.groups.GroupsPage;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 

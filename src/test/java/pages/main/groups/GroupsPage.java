@@ -1,8 +1,9 @@
-package page_objects;
+package pages.main.groups;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import page_components.GroupLeftSideMenu;
+import pages.PageObject;
+import pages.main.groups.categories.CategoryGroupPage;
 
 public class GroupsPage extends PageObject {
 
@@ -10,7 +11,7 @@ public class GroupsPage extends PageObject {
         super(driver);
     }
 
-    public GroupLeftSideMenu leftMenu;
+    public GroupsLeftSideMenu leftMenu;
 
     public CategoryGroupPage getAutoMotoPage () {
         leftMenu.autoMotoButton.clickAndWaitForCondition(driver, ExpectedConditions.urlContains("automoto"));

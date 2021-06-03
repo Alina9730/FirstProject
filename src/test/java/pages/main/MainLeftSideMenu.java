@@ -1,9 +1,9 @@
-package page_components;
+package pages.main;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import page_components.custom.CustomButton;
+import components.CustomButton;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 import java.util.List;

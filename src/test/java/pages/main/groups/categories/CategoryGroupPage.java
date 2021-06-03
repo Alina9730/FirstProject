@@ -1,13 +1,13 @@
-package page_objects;
+package pages.main.groups.categories;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
-import page_components.GroupCard;
-import page_components.UserGroupsListMenu;
-import page_components.custom.CustomButton;
+import components.CustomButton;
+import pages.PageObject;
+import pages.main.groups.categories.group.GroupPage;
 
 import java.util.List;
 
@@ -45,8 +45,4 @@ public class CategoryGroupPage extends PageObject {
         return new GroupPage(driver);
     }
 
-
-//    public void printButtonText() {
-//        System.out.println(groupCards.get(0).joinGroupButton.getText());
-//    }
 }
