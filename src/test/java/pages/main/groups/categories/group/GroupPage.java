@@ -11,6 +11,8 @@ import pages.main.groups.GroupsPage;
 import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class GroupPage extends PageObject {
+    public static String IN_GROUP_BUTTON = ".//a[contains(@class,\"button-pro __wide\")]";
+    private String CREATE_GROUP_BUTTON = ".//a[contains(@class,'button-pro __wide __light __ic')]";
 
     public GroupPage(WebDriver driver) {
         super(driver);
@@ -25,14 +27,15 @@ public class GroupPage extends PageObject {
     @FindBy(xpath = ".//div[contains(@class,'toolbar_back h-mod')]")
     public CustomButton returnToGroupsPageButton;
 
+
     public void leftGroup() {
         inGroupButton.clickAndWaitForCondition(driver, visibilityOf(leftGroupButton));
         leftGroupButton
-                .clickAndWaitForCondition(driver, visibilityOfElementLocated(By.xpath(".//a[contains(@class,\"button-pro __wide\")]")));
+                .clickAndWaitForCondition(driver, ExpectedConditions.elementToBeClickable(By.xpath(IN_GROUP_BUTTON)));
     }
 
     public GroupsPage getGroupPage() {
-        returnToGroupsPageButton.clickAndWaitForCondition(driver, ExpectedConditions.urlContains("profile"));
+        returnToGroupsPageButton.clickAndWaitForCondition(driver, ExpectedConditions.elementToBeClickable(By.xpath(CREATE_GROUP_BUTTON)));
         return new GroupsPage(driver);
     }
 

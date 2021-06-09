@@ -1,34 +1,23 @@
-import org.junit.Assert;
+import org.hamcrest.Matchers;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
 import pages.main.MainPage;
 
-import java.util.List;
-
-import static org.hamcrest.CoreMatchers.everyItem;
-import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static ru.yandex.qatools.matchers.webdriver.DisplayedMatcher.displayed;
+import static pages.main.MainLeftSideMenu.*;
 
 public class MainPageTest extends BaseTestWithLogin {
     @Test
     public void testMenuItemsVisibility() {
         MainPage mainPage = new MainPage(driver);
 
-        List<WebElement> menuItems = mainPage.leftMenu.items;
+        assertThat(mainPage.leftMenu.getVisibleItemsSize(), Matchers.is(INITIAL_MENU_SIZE));
 
-        assertThat(menuItems, not(everyItem(displayed())));
+        // нажимаем кнопку "Ещё" на тулбаре user-main, ждём после этого 100 миллисекунд для обновления списка меню
+        mainPage.leftMenu.pressTogglerButton(driver, 100);
+        assertThat(mainPage.leftMenu.getVisibleItemsSize(), Matchers.is(INITIAL_MENU_SIZE + ADDITIONAL_MENU_SIZE));
 
-        try {
-            // нажимаем кнопку "Ещё" на тулбаре user-main, ждём после этого 500 миллисекунд для обновления списка меню
-            mainPage.leftMenu.togglerButton.clickAndWait(500);
-            assertThat(menuItems, everyItem((displayed())));
-
-            // нажимаем кнопку "Скрыть" на тулбаре user-main, ждём после этого 1000 миллисекунд для обновления списка меню
-            mainPage.leftMenu.togglerButton.clickAndWait(1000);
-            assertThat(menuItems, not(everyItem(displayed())));
-        } catch (Exception e) {
-            Assert.fail(e.getMessage());
-        }
+        // нажимаем кнопку "Скрыть" на тулбаре user-main, ждём после этого 500 миллисекунд для обновления списка меню
+        mainPage.leftMenu.pressTogglerButton(driver, 500);
+        assertThat(mainPage.leftMenu.getVisibleItemsSize(), Matchers.is(INITIAL_MENU_SIZE));
     }
 }
