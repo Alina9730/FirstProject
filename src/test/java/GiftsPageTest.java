@@ -6,6 +6,7 @@ public class GiftsPageTest extends BaseTestWithLogin {
 
     @Test
     public void testGifts() {
+        driver.manage().window().fullscreen();
         GiftsPage giftsPage = new MainPage(driver).getGiftsPage();
         giftsPage.openCategoryMenu();
 

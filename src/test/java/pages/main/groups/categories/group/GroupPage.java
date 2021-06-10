@@ -12,7 +12,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.*;
 
 public class GroupPage extends PageObject {
     public static String IN_GROUP_BUTTON = ".//a[contains(@class,\"button-pro __wide\")]";
-    private String CREATE_GROUP_BUTTON = ".//a[contains(@class,'button-pro __wide __light __ic')]";
+    public static String CREATE_GROUP_BUTTON = ".//a[contains(@class,'button-pro __wide __light __ic')]";
 
     public GroupPage(WebDriver driver) {
         super(driver);

@@ -27,6 +27,9 @@ public class MainLeftSideMenu extends HtmlElement {
     @FindBy(xpath = ".//a[@data-l=\"t,giftsFront\"]")
     public CustomButton giftsButton;
 
+    @FindBy(xpath = ".//a[contains(@data-l,\"t,userStatuses\")]")
+    public CustomButton notesButton;
+
     public long getVisibleItemsSize() {
        return items.stream().filter(WebElement::isDisplayed).count();
     }
