@@ -2,7 +2,6 @@ package pages.main.groups;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.PageObject;
 import pages.main.groups.categories.CategoryGroupPage;
 
@@ -15,7 +14,7 @@ public class GroupsPage extends PageObject {
         super(driver);
     }
 
-    public GroupsLeftSideMenu leftMenu;
+    public LeftSideMenu leftMenu;
 
     public CategoryGroupPage getAutoMotoPage () {
 

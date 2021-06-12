@@ -7,11 +7,10 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import components.CustomButton;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
-
 import java.util.List;
 
 @FindBy(xpath = ".//div[contains(@class,\"nav-side __navigation __user-main\")]")
-public class MainLeftSideMenu extends HtmlElement {
+public class LeftSideMenu extends HtmlElement {
     public static long INITIAL_MENU_SIZE = 15;
     public static long ADDITIONAL_MENU_SIZE = 8;
 

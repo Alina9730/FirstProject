@@ -3,7 +3,7 @@ import org.junit.Test;
 import pages.main.MainPage;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static pages.main.MainLeftSideMenu.*;
+import static pages.main.LeftSideMenu.*;
 
 public class MainPageTest extends BaseTestWithLogin {
     @Test

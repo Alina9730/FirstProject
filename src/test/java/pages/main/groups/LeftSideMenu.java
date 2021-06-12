@@ -6,7 +6,7 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 
 @FindBy(xpath = ".//div[contains(@class,\"nav-side \")]")
-public class GroupsLeftSideMenu extends HtmlElement {
+public class LeftSideMenu extends HtmlElement {
 
     @FindBy(xpath = ".//a[contains(@data-l,\"t,automoto\")]")
     public CustomButton autoMotoButton;
